@@ -34,6 +34,7 @@
     "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
     "@mailchimp/mailchimp_marketing": "^3.0.72",
+    "@netlify/functions": "^0.10.0",
     "cookie": "^0.4.1",
     "node-sass": "^6.0.1"
   }
