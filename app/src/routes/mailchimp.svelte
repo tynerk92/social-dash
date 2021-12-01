@@ -1,20 +1,20 @@
 <script>
-  import mailchimp from '../mailchimp.js'
-  import { onMount } from 'svelte'
+  // import mailchimp from '../mailchimp.js'
+  // import { onMount } from 'svelte'
+  //
+  // let lists = [];
 
-  let lists = [];
-
-  onMount(() => {
-    console.log("Mounting mailchimp");
-    // const data = await mailchimp.lists.getAllLists()
-    // console.log( data)
-    // return data.lists
-  })
+  // onMount(() => {
+  //   console.log("Mounting mailchimp");
+  //   // const data = await mailchimp.lists.getAllLists()
+  //   // console.log( data)
+  //   // return data.lists
+  // })
 
 </script>
 
 <ul>
-  {#each lists as list (list.id)}
+  <!-- {#each lists as list (list.id)}
     <li>{list}</li>
-  {/each}
+  {/each} -->
 </ul>
