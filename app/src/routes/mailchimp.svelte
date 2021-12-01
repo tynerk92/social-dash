@@ -15,6 +15,6 @@
 
 <ul>
   {#each lists as list (list.id)}
-    <li>{list.name}</li>
+    <li>{list['name']}</li>
   {/each}
 </ul>
