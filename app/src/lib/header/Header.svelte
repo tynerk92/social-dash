@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from '/Logo.svg';
+	import logo from './Logo.svg';
 </script>
 
 <header>

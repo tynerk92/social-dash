@@ -14,5 +14,7 @@
 </script>
 
 <ul>
-
+  {#each lists as list (list.id)}
+    <li>{list}</li>
+  {/each}
 </ul>
