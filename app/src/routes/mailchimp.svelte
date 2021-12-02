@@ -1,10 +1,11 @@
 <script>
   import { onMount } from 'svelte'
+  import { env } from '$lib/env'
 
-  let lists = [];
+  let lists = []
 
   onMount(async () => {
-    const result = await fetch('https://laughing-shannon-bd470a.netlify.app/.netlify/functions/mailchimp')
+    const result = await fetch('/.netlify/functions/mailchimp')
     const json = await result.json()
     lists = json.lists
   })

@@ -1,14 +1,17 @@
 const mailchimp = require('@mailchimp/mailchimp_marketing')
+import { env } from '$lib/env'
 
 mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_SERVER
+  apiKey: env.MAILCHIMP_API_KEY,
+  server: env.MAILCHIMP_SERVER
 })
 
-exports.handler = async function(event, context) {
+const handler: Handler = async (event, context) => {
   const res = await mailchimp.lists.getAllLists();
   return {
     statusCode: 200,
     body: JSON.stringify(res)
   }
 }
+
+export { handler }
