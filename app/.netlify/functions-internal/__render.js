@@ -4928,16 +4928,16 @@ var init_uid_json_039b6f30 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-f7cc6a2d.js
-var layout_f7cc6a2d_exports = {};
-__export(layout_f7cc6a2d_exports, {
+// .svelte-kit/output/server/chunks/__layout-4a5b9059.js
+var layout_4a5b9059_exports = {};
+__export(layout_4a5b9059_exports, {
   default: () => _layout
 });
 var import_cookie, getStores, page, logo, css$2, Header, css$1, Nav, css, _layout;
-var init_layout_f7cc6a2d = __esm({
-  ".svelte-kit/output/server/chunks/__layout-f7cc6a2d.js"() {
+var init_layout_4a5b9059 = __esm({
+  ".svelte-kit/output/server/chunks/__layout-4a5b9059.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie = __toModule(require_cookie());
     init_dist();
     getStores = () => {
@@ -5005,9 +5005,9 @@ var init_layout_f7cc6a2d = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/error-338bb006.js
-var error_338bb006_exports = {};
-__export(error_338bb006_exports, {
+// .svelte-kit/output/server/chunks/error-61e6de02.js
+var error_61e6de02_exports = {};
+__export(error_61e6de02_exports, {
   default: () => Error2,
   load: () => load
 });
@@ -5015,10 +5015,10 @@ function load({ error: error2, status }) {
   return { props: { error: error2, status } };
 }
 var import_cookie2, Error2;
-var init_error_338bb006 = __esm({
-  ".svelte-kit/output/server/chunks/error-338bb006.js"() {
+var init_error_61e6de02 = __esm({
+  ".svelte-kit/output/server/chunks/error-61e6de02.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie2 = __toModule(require_cookie());
     init_dist();
     Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5040,9 +5040,9 @@ ${error2.stack ? `<pre>${escape(error2.stack)}</pre>` : ``}`;
   }
 });
 
-// .svelte-kit/output/server/chunks/index-dd6ecff2.js
-var index_dd6ecff2_exports = {};
-__export(index_dd6ecff2_exports, {
+// .svelte-kit/output/server/chunks/index-085d38dc.js
+var index_085d38dc_exports = {};
+__export(index_085d38dc_exports, {
   default: () => Routes,
   prerender: () => prerender
 });
@@ -5188,10 +5188,10 @@ function modulo(n, m) {
   return (n % m + m) % m;
 }
 var import_cookie3, subscriber_queue, css$12, Counter, css2, prerender, Routes;
-var init_index_dd6ecff2 = __esm({
-  ".svelte-kit/output/server/chunks/index-dd6ecff2.js"() {
+var init_index_085d38dc = __esm({
+  ".svelte-kit/output/server/chunks/index-085d38dc.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie3 = __toModule(require_cookie());
     init_dist();
     subscriber_queue = [];
@@ -5242,16 +5242,16 @@ var init_index_dd6ecff2 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/mailchimp-497767f5.js
-var mailchimp_497767f5_exports = {};
-__export(mailchimp_497767f5_exports, {
+// .svelte-kit/output/server/chunks/mailchimp-e3ab9fc0.js
+var mailchimp_e3ab9fc0_exports = {};
+__export(mailchimp_e3ab9fc0_exports, {
   default: () => Mailchimp
 });
 var import_cookie4, Mailchimp;
-var init_mailchimp_497767f5 = __esm({
-  ".svelte-kit/output/server/chunks/mailchimp-497767f5.js"() {
+var init_mailchimp_e3ab9fc0 = __esm({
+  ".svelte-kit/output/server/chunks/mailchimp-e3ab9fc0.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie4 = __toModule(require_cookie());
     init_dist();
     Mailchimp = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5261,16 +5261,16 @@ var init_mailchimp_497767f5 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/facebook-dec47f75.js
-var facebook_dec47f75_exports = {};
-__export(facebook_dec47f75_exports, {
+// .svelte-kit/output/server/chunks/facebook-98e5b204.js
+var facebook_98e5b204_exports = {};
+__export(facebook_98e5b204_exports, {
   default: () => Facebook
 });
 var import_cookie5, Facebook;
-var init_facebook_dec47f75 = __esm({
-  ".svelte-kit/output/server/chunks/facebook-dec47f75.js"() {
+var init_facebook_98e5b204 = __esm({
+  ".svelte-kit/output/server/chunks/facebook-98e5b204.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie5 = __toModule(require_cookie());
     init_dist();
     Facebook = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5279,16 +5279,16 @@ var init_facebook_dec47f75 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/twitter-44423d12.js
-var twitter_44423d12_exports = {};
-__export(twitter_44423d12_exports, {
+// .svelte-kit/output/server/chunks/twitter-7c569cb6.js
+var twitter_7c569cb6_exports = {};
+__export(twitter_7c569cb6_exports, {
   default: () => Twitter
 });
 var import_cookie6, Twitter;
-var init_twitter_44423d12 = __esm({
-  ".svelte-kit/output/server/chunks/twitter-44423d12.js"() {
+var init_twitter_7c569cb6 = __esm({
+  ".svelte-kit/output/server/chunks/twitter-7c569cb6.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie6 = __toModule(require_cookie());
     init_dist();
     Twitter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5297,16 +5297,16 @@ var init_twitter_44423d12 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/custom-3b1306d4.js
-var custom_3b1306d4_exports = {};
-__export(custom_3b1306d4_exports, {
+// .svelte-kit/output/server/chunks/custom-38bda792.js
+var custom_38bda792_exports = {};
+__export(custom_38bda792_exports, {
   default: () => Custom
 });
 var import_cookie7, Custom;
-var init_custom_3b1306d4 = __esm({
-  ".svelte-kit/output/server/chunks/custom-3b1306d4.js"() {
+var init_custom_38bda792 = __esm({
+  ".svelte-kit/output/server/chunks/custom-38bda792.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie7 = __toModule(require_cookie());
     init_dist();
     Custom = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5315,19 +5315,19 @@ var init_custom_3b1306d4 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/about-6e4503be.js
-var about_6e4503be_exports = {};
-__export(about_6e4503be_exports, {
+// .svelte-kit/output/server/chunks/about-cb121dd6.js
+var about_cb121dd6_exports = {};
+__export(about_cb121dd6_exports, {
   default: () => About,
   hydrate: () => hydrate,
   prerender: () => prerender2,
   router: () => router
 });
 var import_cookie8, browser, dev, css3, hydrate, router, prerender2, About;
-var init_about_6e4503be = __esm({
-  ".svelte-kit/output/server/chunks/about-6e4503be.js"() {
+var init_about_cb121dd6 = __esm({
+  ".svelte-kit/output/server/chunks/about-cb121dd6.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie8 = __toModule(require_cookie());
     init_dist();
     browser = false;
@@ -5365,17 +5365,17 @@ var init_about_6e4503be = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-63336ff6.js
-var index_63336ff6_exports = {};
-__export(index_63336ff6_exports, {
+// .svelte-kit/output/server/chunks/index-8776b48e.js
+var index_8776b48e_exports = {};
+__export(index_8776b48e_exports, {
   default: () => Todos,
   load: () => load2
 });
 var import_cookie9, css4, load2, Todos;
-var init_index_63336ff6 = __esm({
-  ".svelte-kit/output/server/chunks/index-63336ff6.js"() {
+var init_index_8776b48e = __esm({
+  ".svelte-kit/output/server/chunks/index-8776b48e.js"() {
     init_shims();
-    init_app_3d1e9ea7();
+    init_app_c0ef6439();
     import_cookie9 = __toModule(require_cookie());
     init_dist();
     css4 = {
@@ -5415,7 +5415,7 @@ var init_index_63336ff6 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/app-3d1e9ea7.js
+// .svelte-kit/output/server/chunks/app-c0ef6439.js
 function get_single_valued_header(headers, key) {
   const value = headers[key];
   if (Array.isArray(value)) {
@@ -6741,9 +6741,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-fc12e582.js",
+      file: assets + "/_app/start-af360bf8.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-fc12e582.js", assets + "/_app/chunks/vendor-01351a32.js"]
+      js: [assets + "/_app/start-af360bf8.js", assets + "/_app/chunks/vendor-01351a32.js"]
     },
     fetched: void 0,
     floc: false,
@@ -6787,8 +6787,8 @@ function render(request, {
   return respond({ ...request, host }, options, { prerender: prerender3 });
 }
 var import_cookie10, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css5, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
-var init_app_3d1e9ea7 = __esm({
-  ".svelte-kit/output/server/chunks/app-3d1e9ea7.js"() {
+var init_app_c0ef6439 = __esm({
+  ".svelte-kit/output/server/chunks/app-c0ef6439.js"() {
     init_shims();
     import_cookie10 = __toModule(require_cookie());
     init_dist();
@@ -7053,17 +7053,17 @@ ${``}`;
       externalFetch: hooks.externalFetch || fetch
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_f7cc6a2d(), layout_f7cc6a2d_exports)),
-      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_338bb006(), error_338bb006_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_dd6ecff2(), index_dd6ecff2_exports)),
-      "src/routes/mailchimp.svelte": () => Promise.resolve().then(() => (init_mailchimp_497767f5(), mailchimp_497767f5_exports)),
-      "src/routes/facebook.svelte": () => Promise.resolve().then(() => (init_facebook_dec47f75(), facebook_dec47f75_exports)),
-      "src/routes/twitter.svelte": () => Promise.resolve().then(() => (init_twitter_44423d12(), twitter_44423d12_exports)),
-      "src/routes/custom.svelte": () => Promise.resolve().then(() => (init_custom_3b1306d4(), custom_3b1306d4_exports)),
-      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_6e4503be(), about_6e4503be_exports)),
-      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_63336ff6(), index_63336ff6_exports))
+      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_4a5b9059(), layout_4a5b9059_exports)),
+      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_61e6de02(), error_61e6de02_exports)),
+      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_085d38dc(), index_085d38dc_exports)),
+      "src/routes/mailchimp.svelte": () => Promise.resolve().then(() => (init_mailchimp_e3ab9fc0(), mailchimp_e3ab9fc0_exports)),
+      "src/routes/facebook.svelte": () => Promise.resolve().then(() => (init_facebook_98e5b204(), facebook_98e5b204_exports)),
+      "src/routes/twitter.svelte": () => Promise.resolve().then(() => (init_twitter_7c569cb6(), twitter_7c569cb6_exports)),
+      "src/routes/custom.svelte": () => Promise.resolve().then(() => (init_custom_38bda792(), custom_38bda792_exports)),
+      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_cb121dd6(), about_cb121dd6_exports)),
+      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_8776b48e(), index_8776b48e_exports))
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-339bcb28.js", "css": ["assets/pages/__layout.svelte-a5e0b417.css"], "js": ["pages/__layout.svelte-339bcb28.js", "chunks/vendor-01351a32.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-56f27491.js", "css": [], "js": ["error.svelte-56f27491.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-a086fd8d.js", "css": ["assets/pages/index.svelte-c63fe1c6.css"], "js": ["pages/index.svelte-a086fd8d.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/mailchimp.svelte": { "entry": "pages/mailchimp.svelte-0a1b0e6b.js", "css": [], "js": ["pages/mailchimp.svelte-0a1b0e6b.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/facebook.svelte": { "entry": "pages/facebook.svelte-2b4b94f8.js", "css": [], "js": ["pages/facebook.svelte-2b4b94f8.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/twitter.svelte": { "entry": "pages/twitter.svelte-c98c04c3.js", "css": [], "js": ["pages/twitter.svelte-c98c04c3.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/custom.svelte": { "entry": "pages/custom.svelte-96d2d6df.js", "css": [], "js": ["pages/custom.svelte-96d2d6df.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-9a1bdb59.js", "css": ["assets/pages/about.svelte-bf4528fa.css"], "js": ["pages/about.svelte-9a1bdb59.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-b7f5b01a.js", "css": ["assets/pages/todos/index.svelte-784042c1.css"], "js": ["pages/todos/index.svelte-b7f5b01a.js", "chunks/vendor-01351a32.js"], "styles": [] } };
+    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-339bcb28.js", "css": ["assets/pages/__layout.svelte-a5e0b417.css"], "js": ["pages/__layout.svelte-339bcb28.js", "chunks/vendor-01351a32.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-56f27491.js", "css": [], "js": ["error.svelte-56f27491.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-a086fd8d.js", "css": ["assets/pages/index.svelte-c63fe1c6.css"], "js": ["pages/index.svelte-a086fd8d.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/mailchimp.svelte": { "entry": "pages/mailchimp.svelte-5e0802c6.js", "css": [], "js": ["pages/mailchimp.svelte-5e0802c6.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/facebook.svelte": { "entry": "pages/facebook.svelte-2b4b94f8.js", "css": [], "js": ["pages/facebook.svelte-2b4b94f8.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/twitter.svelte": { "entry": "pages/twitter.svelte-c98c04c3.js", "css": [], "js": ["pages/twitter.svelte-c98c04c3.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/custom.svelte": { "entry": "pages/custom.svelte-96d2d6df.js", "css": [], "js": ["pages/custom.svelte-96d2d6df.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-9a1bdb59.js", "css": ["assets/pages/about.svelte-bf4528fa.css"], "js": ["pages/about.svelte-9a1bdb59.js", "chunks/vendor-01351a32.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-b7f5b01a.js", "css": ["assets/pages/todos/index.svelte-784042c1.css"], "js": ["pages/todos/index.svelte-b7f5b01a.js", "chunks/vendor-01351a32.js"], "styles": [] } };
   }
 });
 
@@ -7075,7 +7075,7 @@ init_shims();
 
 // .svelte-kit/output/server/app.js
 init_shims();
-init_app_3d1e9ea7();
+init_app_c0ef6439();
 var import_cookie11 = __toModule(require_cookie());
 init_dist();
 
