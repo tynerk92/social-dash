@@ -2,8 +2,8 @@ const mailchimp = require('@mailchimp/mailchimp_marketing')
 import { env } from '$lib/env'
 
 mailchimp.setConfig({
-  apiKey: process.env.VITE_MAILCHIMP_API_KEY,
-  server: process.env.VITE_MAILCHIMP_SERVER
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_SERVER
 })
 
 const handler: Handler = async (event, context) => {
