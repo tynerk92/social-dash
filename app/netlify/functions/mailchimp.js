@@ -7,16 +7,17 @@ mailchimp.setConfig({
 
 exports.handler = async function (event, context) {
   const call = event.queryStringParameters.call;
+  let res;
 
   switch(call) {
     case 'allLists':
-      const res = await mailchimp.lists.getAllLists();
+      res = await mailchimp.lists.getAllLists();
       return {
         statusCode: 200,
         body: JSON.stringify(res)
       }
     case 'listMembers':
-      const res = await mailchimp.lists.getListMembersInfo(event.queryStringParameters.id)
+      res = await mailchimp.lists.getListMembersInfo(event.queryStringParameters.id)
       return {
         statusCode: 200,
         body: JSON.stringify(res)
