@@ -6,7 +6,7 @@ mailchimp.setConfig({
 })
 
 exports.handler = async function(event, context) {
-  const res = mailchimp.ping.get()
+  const res = await mailchimp.ping.get()
   return {
     statusCode: 200,
     body: JSON.stringify(res)
