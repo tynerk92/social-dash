@@ -1,14 +1,12 @@
 <script>
-  import mailchimp from '../mailchimp.js'
   import { onMount } from 'svelte'
 
   let lists = [];
 
   onMount(async () => {
-    console.log("Mounting mailchimp");
-    const data = await mailchimp.lists.getAllLists()
-    console.log( data)
-    return data.lists
+    const result = await fetch('https://laughing-shannon-bd470a.netlify.app/.netlify/functions/mailchimp')
+    const json = await result.json()
+    lists = json.lists
   })
 
 </script>
