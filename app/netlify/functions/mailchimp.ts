@@ -1,5 +1,4 @@
 const mailchimp = require('@mailchimp/mailchimp_marketing')
-import { env } from '$lib/env'
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,

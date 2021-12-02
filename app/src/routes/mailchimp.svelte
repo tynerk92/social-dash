@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte'
-  import { env } from '$lib/env'
 
   let lists = []
 
