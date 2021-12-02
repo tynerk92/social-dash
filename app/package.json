@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.0.1",
   "scripts": {
+    "prebuild": "cd netlify/functions && npm i",
     "dev": "svelte-kit dev --https",
     "build": "svelte-kit build",
     "package": "svelte-kit package",

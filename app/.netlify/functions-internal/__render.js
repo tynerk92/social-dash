@@ -203,23 +203,23 @@ async function fetch(url, options_) {
     }
     if (options2.protocol === "data:") {
       const data = dataUriToBuffer$1(request.url);
-      const response2 = new Response(data, { headers: { "Content-Type": data.typeFull } });
-      resolve2(response2);
+      const response3 = new Response(data, { headers: { "Content-Type": data.typeFull } });
+      resolve2(response3);
       return;
     }
     const send = (options2.protocol === "https:" ? import_https.default : import_http.default).request;
     const { signal } = request;
-    let response = null;
+    let response2 = null;
     const abort = () => {
       const error2 = new AbortError("The operation was aborted.");
       reject(error2);
       if (request.body && request.body instanceof import_stream.default.Readable) {
         request.body.destroy(error2);
       }
-      if (!response || !response.body) {
+      if (!response2 || !response2.body) {
         return;
       }
-      response.body.emit("error", error2);
+      response2.body.emit("error", error2);
     };
     if (signal && signal.aborted) {
       abort();
@@ -244,7 +244,7 @@ async function fetch(url, options_) {
       finalize();
     });
     fixResponseChunkedTransferBadEnding(request_, (error2) => {
-      response.body.destroy(error2);
+      response2.body.destroy(error2);
     });
     if (process.version < "v14") {
       request_.on("socket", (s2) => {
@@ -253,10 +253,10 @@ async function fetch(url, options_) {
           endedWithEventsCount = s2._eventsCount;
         });
         s2.prependListener("close", (hadError) => {
-          if (response && endedWithEventsCount < s2._eventsCount && !hadError) {
+          if (response2 && endedWithEventsCount < s2._eventsCount && !hadError) {
             const error2 = new Error("Premature close");
             error2.code = "ERR_STREAM_PREMATURE_CLOSE";
-            response.body.emit("error", error2);
+            response2.body.emit("error", error2);
           }
         });
       });
@@ -335,8 +335,8 @@ async function fetch(url, options_) {
       };
       const codings = headers.get("Content-Encoding");
       if (!request.compress || request.method === "HEAD" || codings === null || response_.statusCode === 204 || response_.statusCode === 304) {
-        response = new Response(body, responseOptions);
-        resolve2(response);
+        response2 = new Response(body, responseOptions);
+        resolve2(response2);
         return;
       }
       const zlibOptions = {
@@ -345,27 +345,27 @@ async function fetch(url, options_) {
       };
       if (codings === "gzip" || codings === "x-gzip") {
         body = (0, import_stream.pipeline)(body, import_zlib.default.createGunzip(zlibOptions), reject);
-        response = new Response(body, responseOptions);
-        resolve2(response);
+        response2 = new Response(body, responseOptions);
+        resolve2(response2);
         return;
       }
       if (codings === "deflate" || codings === "x-deflate") {
         const raw = (0, import_stream.pipeline)(response_, new import_stream.PassThrough(), reject);
         raw.once("data", (chunk) => {
           body = (chunk[0] & 15) === 8 ? (0, import_stream.pipeline)(body, import_zlib.default.createInflate(), reject) : (0, import_stream.pipeline)(body, import_zlib.default.createInflateRaw(), reject);
-          response = new Response(body, responseOptions);
-          resolve2(response);
+          response2 = new Response(body, responseOptions);
+          resolve2(response2);
         });
         return;
       }
       if (codings === "br") {
         body = (0, import_stream.pipeline)(body, import_zlib.default.createBrotliDecompress(), reject);
-        response = new Response(body, responseOptions);
-        resolve2(response);
+        response2 = new Response(body, responseOptions);
+        resolve2(response2);
         return;
       }
-      response = new Response(body, responseOptions);
-      resolve2(response);
+      response2 = new Response(body, responseOptions);
+      resolve2(response2);
     });
     writeToStream(request_, request);
   });
@@ -375,8 +375,8 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
   let isChunkedTransfer = false;
   let properLastChunkReceived = false;
   let previousChunk;
-  request.on("response", (response) => {
-    const { headers } = response;
+  request.on("response", (response2) => {
+    const { headers } = response2;
     isChunkedTransfer = headers["transfer-encoding"] === "chunked" && !headers["content-length"];
   });
   request.on("socket", (socket) => {
@@ -4527,9 +4527,9 @@ var init_install_fetch = __esm({
         });
       }
       static error() {
-        const response = new Response(null, { status: 0, statusText: "" });
-        response[INTERNALS$1].type = "error";
-        return response;
+        const response2 = new Response(null, { status: 0, statusText: "" });
+        response2[INTERNALS$1].type = "error";
+        return response2;
       }
       get [Symbol.toStringTag]() {
         return "Response";
@@ -4890,17 +4890,17 @@ var init_index_json_784727b1 = __esm({
     init_shims();
     init_api_e66b1c82();
     get = async (request) => {
-      const response = await api(request, `todos/${request.locals.userid}`);
-      if (response.status === 404) {
+      const response2 = await api(request, `todos/${request.locals.userid}`);
+      if (response2.status === 404) {
         return { body: [] };
       }
-      return response;
+      return response2;
     };
     post = async (request) => {
-      const response = await api(request, `todos/${request.locals.userid}`, {
+      const response2 = await api(request, `todos/${request.locals.userid}`, {
         text: request.body.get("text")
       });
-      return response;
+      return response2;
     };
   }
 });
@@ -4928,16 +4928,16 @@ var init_uid_json_039b6f30 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-2206ff22.js
-var layout_2206ff22_exports = {};
-__export(layout_2206ff22_exports, {
+// .svelte-kit/output/server/chunks/__layout-2628b42a.js
+var layout_2628b42a_exports = {};
+__export(layout_2628b42a_exports, {
   default: () => _layout
 });
 var import_cookie, getStores, page, logo, css$2, Header, css$1, Nav, css, _layout;
-var init_layout_2206ff22 = __esm({
-  ".svelte-kit/output/server/chunks/__layout-2206ff22.js"() {
+var init_layout_2628b42a = __esm({
+  ".svelte-kit/output/server/chunks/__layout-2628b42a.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie = __toModule(require_cookie());
     init_dist();
     getStores = () => {
@@ -5005,9 +5005,9 @@ var init_layout_2206ff22 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/error-0a6ae754.js
-var error_0a6ae754_exports = {};
-__export(error_0a6ae754_exports, {
+// .svelte-kit/output/server/chunks/error-ee92c138.js
+var error_ee92c138_exports = {};
+__export(error_ee92c138_exports, {
   default: () => Error2,
   load: () => load
 });
@@ -5015,10 +5015,10 @@ function load({ error: error2, status }) {
   return { props: { error: error2, status } };
 }
 var import_cookie2, Error2;
-var init_error_0a6ae754 = __esm({
-  ".svelte-kit/output/server/chunks/error-0a6ae754.js"() {
+var init_error_ee92c138 = __esm({
+  ".svelte-kit/output/server/chunks/error-ee92c138.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie2 = __toModule(require_cookie());
     init_dist();
     Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5040,9 +5040,9 @@ ${error2.stack ? `<pre>${escape(error2.stack)}</pre>` : ``}`;
   }
 });
 
-// .svelte-kit/output/server/chunks/index-50a4ef0d.js
-var index_50a4ef0d_exports = {};
-__export(index_50a4ef0d_exports, {
+// .svelte-kit/output/server/chunks/index-b99b4411.js
+var index_b99b4411_exports = {};
+__export(index_b99b4411_exports, {
   default: () => Routes,
   prerender: () => prerender
 });
@@ -5070,13 +5070,13 @@ function writable(value, start = noop) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run2, invalidate = noop) {
-    const subscriber = [run2, invalidate];
+  function subscribe2(run3, invalidate = noop) {
+    const subscriber = [run3, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
       stop = start(set) || noop;
     }
-    run2(value);
+    run3(value);
     return () => {
       subscribers.delete(subscriber);
       if (subscribers.size === 0) {
@@ -5188,10 +5188,10 @@ function modulo(n, m) {
   return (n % m + m) % m;
 }
 var import_cookie3, subscriber_queue, css$12, Counter, css2, prerender, Routes;
-var init_index_50a4ef0d = __esm({
-  ".svelte-kit/output/server/chunks/index-50a4ef0d.js"() {
+var init_index_b99b4411 = __esm({
+  ".svelte-kit/output/server/chunks/index-b99b4411.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie3 = __toModule(require_cookie());
     init_dist();
     subscriber_queue = [];
@@ -15868,9 +15868,9 @@ var require_form_data = __commonJS({
       } else if (value.hasOwnProperty("httpVersion")) {
         callback(null, +value.headers["content-length"]);
       } else if (value.hasOwnProperty("httpModule")) {
-        value.on("response", function(response) {
+        value.on("response", function(response2) {
           value.pause();
-          callback(null, +response.headers["content-length"]);
+          callback(null, +response2.headers["content-length"]);
         });
         value.resume();
       } else {
@@ -18231,15 +18231,15 @@ var require_node2 = __commonJS({
       return Buffer.isBuffer(obj) || obj instanceof Stream2 || obj instanceof FormData;
     };
     Request2.prototype._emitResponse = function(body, files) {
-      const response = new Response2(this);
-      this.response = response;
-      response.redirects = this._redirectList;
+      const response2 = new Response2(this);
+      this.response = response2;
+      response2.redirects = this._redirectList;
       if (body !== void 0) {
-        response.body = body;
+        response2.body = body;
       }
-      response.files = files;
-      this.emit("response", response);
-      return response;
+      response2.files = files;
+      this.emit("response", response2);
+      return response2;
     };
     Request2.prototype.end = function(fn) {
       this.request();
@@ -25894,13 +25894,13 @@ var require_ApiClient = __commonJS({
           throw new Error("Unknown collection format: " + collectionFormat);
       }
     };
-    exports.prototype.deserialize = function deserialize(response, returnType) {
-      if (response == null || returnType == null || response.status == 204) {
+    exports.prototype.deserialize = function deserialize(response2, returnType) {
+      if (response2 == null || returnType == null || response2.status == 204) {
         return null;
       }
-      var data = response.body;
+      var data = response2.body;
       if (data == null || typeof data === "object" && typeof data.length === "undefined" && !Object.keys(data).length) {
-        data = response.text;
+        data = response2.text;
       }
       return exports.convertToType(data, returnType);
     };
@@ -25960,16 +25960,16 @@ var require_ApiClient = __commonJS({
         }
       }
       return new Promise(function(resolve2, reject) {
-        request.end(function(error2, response) {
+        request.end(function(error2, response2) {
           if (error2) {
             reject(error2);
           } else {
             try {
-              var data = _this.deserialize(response, returnType);
+              var data = _this.deserialize(response2, returnType);
               if (_this.enableCookies && typeof window === "undefined") {
-                _this.agent.saveCookies(response);
+                _this.agent.saveCookies(response2);
               }
-              resolve2({ data, response });
+              resolve2({ data, response: response2 });
             } catch (err) {
               reject(err);
             }
@@ -26056,16 +26056,20 @@ var require_src2 = __commonJS({
   }
 });
 
-// .svelte-kit/output/server/chunks/mailchimp-b53b11ec.js
-var mailchimp_b53b11ec_exports = {};
-__export(mailchimp_b53b11ec_exports, {
+// .svelte-kit/output/server/chunks/mailchimp-b1b0c233.js
+var mailchimp_b1b0c233_exports = {};
+__export(mailchimp_b1b0c233_exports, {
   default: () => Mailchimp
 });
+async function run() {
+  await import_mailchimp_marketing.default.ping.get();
+  console.log(response);
+}
 var import_mailchimp_marketing, import_cookie4, Mailchimp;
-var init_mailchimp_b53b11ec = __esm({
-  ".svelte-kit/output/server/chunks/mailchimp-b53b11ec.js"() {
+var init_mailchimp_b1b0c233 = __esm({
+  ".svelte-kit/output/server/chunks/mailchimp-b1b0c233.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_mailchimp_marketing = __toModule(require_src2());
     import_cookie4 = __toModule(require_cookie());
     init_dist();
@@ -26073,22 +26077,24 @@ var init_mailchimp_b53b11ec = __esm({
       apiKey: "123444c62655a5158dd90c6e967d78ac-us20",
       server: "us20"
     });
+    run();
     Mailchimp = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<ul></ul>`;
+      let lists = [];
+      return `<ul>${each(lists, (list) => `<li>${escape(list["name"])}</li>`)}</ul>`;
     });
   }
 });
 
-// .svelte-kit/output/server/chunks/facebook-d032bb1d.js
-var facebook_d032bb1d_exports = {};
-__export(facebook_d032bb1d_exports, {
+// .svelte-kit/output/server/chunks/facebook-02ef51bd.js
+var facebook_02ef51bd_exports = {};
+__export(facebook_02ef51bd_exports, {
   default: () => Facebook
 });
 var import_cookie5, Facebook;
-var init_facebook_d032bb1d = __esm({
-  ".svelte-kit/output/server/chunks/facebook-d032bb1d.js"() {
+var init_facebook_02ef51bd = __esm({
+  ".svelte-kit/output/server/chunks/facebook-02ef51bd.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie5 = __toModule(require_cookie());
     init_dist();
     Facebook = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -26097,16 +26103,16 @@ var init_facebook_d032bb1d = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/twitter-8f6e9bcb.js
-var twitter_8f6e9bcb_exports = {};
-__export(twitter_8f6e9bcb_exports, {
+// .svelte-kit/output/server/chunks/twitter-246d7f2b.js
+var twitter_246d7f2b_exports = {};
+__export(twitter_246d7f2b_exports, {
   default: () => Twitter
 });
 var import_cookie6, Twitter;
-var init_twitter_8f6e9bcb = __esm({
-  ".svelte-kit/output/server/chunks/twitter-8f6e9bcb.js"() {
+var init_twitter_246d7f2b = __esm({
+  ".svelte-kit/output/server/chunks/twitter-246d7f2b.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie6 = __toModule(require_cookie());
     init_dist();
     Twitter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -26115,16 +26121,16 @@ var init_twitter_8f6e9bcb = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/custom-c146350f.js
-var custom_c146350f_exports = {};
-__export(custom_c146350f_exports, {
+// .svelte-kit/output/server/chunks/custom-fc672ece.js
+var custom_fc672ece_exports = {};
+__export(custom_fc672ece_exports, {
   default: () => Custom
 });
 var import_cookie7, Custom;
-var init_custom_c146350f = __esm({
-  ".svelte-kit/output/server/chunks/custom-c146350f.js"() {
+var init_custom_fc672ece = __esm({
+  ".svelte-kit/output/server/chunks/custom-fc672ece.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie7 = __toModule(require_cookie());
     init_dist();
     Custom = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -26133,19 +26139,19 @@ var init_custom_c146350f = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/about-d27b9234.js
-var about_d27b9234_exports = {};
-__export(about_d27b9234_exports, {
+// .svelte-kit/output/server/chunks/about-d80d5164.js
+var about_d80d5164_exports = {};
+__export(about_d80d5164_exports, {
   default: () => About,
   hydrate: () => hydrate,
   prerender: () => prerender2,
   router: () => router
 });
 var import_cookie8, browser, dev, css3, hydrate, router, prerender2, About;
-var init_about_d27b9234 = __esm({
-  ".svelte-kit/output/server/chunks/about-d27b9234.js"() {
+var init_about_d80d5164 = __esm({
+  ".svelte-kit/output/server/chunks/about-d80d5164.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie8 = __toModule(require_cookie());
     init_dist();
     browser = false;
@@ -26183,17 +26189,17 @@ var init_about_d27b9234 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-bb5869e8.js
-var index_bb5869e8_exports = {};
-__export(index_bb5869e8_exports, {
+// .svelte-kit/output/server/chunks/index-69e1d0d3.js
+var index_69e1d0d3_exports = {};
+__export(index_69e1d0d3_exports, {
   default: () => Todos,
   load: () => load2
 });
 var import_cookie9, css4, load2, Todos;
-var init_index_bb5869e8 = __esm({
-  ".svelte-kit/output/server/chunks/index-bb5869e8.js"() {
+var init_index_69e1d0d3 = __esm({
+  ".svelte-kit/output/server/chunks/index-69e1d0d3.js"() {
     init_shims();
-    init_app_518424f3();
+    init_app_a80ae852();
     import_cookie9 = __toModule(require_cookie());
     init_dist();
     css4 = {
@@ -26233,7 +26239,7 @@ var init_index_bb5869e8 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/app-518424f3.js
+// .svelte-kit/output/server/chunks/app-a80ae852.js
 function get_single_valued_header(headers, key) {
   const value = headers[key];
   if (Array.isArray(value)) {
@@ -26306,15 +26312,15 @@ async function render_endpoint(request, route, match) {
     return;
   }
   const params = route.params(match);
-  const response = await handler2({ ...request, params });
+  const response2 = await handler2({ ...request, params });
   const preface = `Invalid response from route ${request.path}`;
-  if (!response) {
+  if (!response2) {
     return;
   }
-  if (typeof response !== "object") {
-    return error(`${preface}: expected an object, got ${typeof response}`);
+  if (typeof response2 !== "object") {
+    return error(`${preface}: expected an object, got ${typeof response2}`);
   }
-  let { status = 200, body, headers = {} } = response;
+  let { status = 200, body, headers = {} } = response2;
   headers = lowercase_keys(headers);
   const type = get_single_valued_header(headers, "content-type");
   const is_type_textual = is_content_type_textual(type);
@@ -26563,13 +26569,13 @@ function writable2(value, start = noop$1) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run2, invalidate = noop$1) {
-    const subscriber = [run2, invalidate];
+  function subscribe2(run22, invalidate = noop$1) {
+    const subscriber = [run22, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
       stop = start(set) || noop$1;
     }
-    run2(value);
+    run22(value);
     return () => {
       subscribers.delete(subscriber);
       if (subscribers.size === 0) {
@@ -26881,13 +26887,13 @@ async function load_node({
           };
         }
         const resolved = resolve(request.path, url.split("?")[0]);
-        let response;
+        let response2;
         const prefix = options2.paths.assets || options2.paths.base;
         const filename = (resolved.startsWith(prefix) ? resolved.slice(prefix.length) : resolved).slice(1);
         const filename_html = `${filename}/index.html`;
         const asset = options2.manifest.assets.find((d2) => d2.file === filename || d2.file === filename_html);
         if (asset) {
-          response = options2.read ? new Response(options2.read(asset.file), {
+          response2 = options2.read ? new Response(options2.read(asset.file), {
             headers: asset.type ? { "content-type": asset.type } : {}
           }) : await fetch(`http://${page2.host}/${asset.file}`, opts);
         } else if (is_root_relative(resolved)) {
@@ -26921,7 +26927,7 @@ async function load_node({
             if (state.prerender) {
               state.prerender.dependencies.set(relative, rendered);
             }
-            response = new Response(rendered.body, {
+            response2 = new Response(rendered.body, {
               status: rendered.status,
               headers: rendered.headers
             });
@@ -26942,15 +26948,15 @@ async function load_node({
             }
           }
           const external_request = new Request(url, opts);
-          response = await options2.hooks.externalFetch.call(null, external_request);
+          response2 = await options2.hooks.externalFetch.call(null, external_request);
         }
-        if (response) {
-          const proxy = new Proxy(response, {
-            get(response2, key, _receiver) {
+        if (response2) {
+          const proxy = new Proxy(response2, {
+            get(response22, key, _receiver) {
               async function text() {
-                const body = await response2.text();
+                const body = await response22.text();
                 const headers = {};
-                for (const [key2, value] of response2.headers) {
+                for (const [key2, value] of response22.headers) {
                   if (key2 === "set-cookie") {
                     set_cookie_headers = set_cookie_headers.concat(value);
                   } else if (key2 !== "etag") {
@@ -26961,7 +26967,7 @@ async function load_node({
                   fetched.push({
                     url,
                     body: opts.body,
-                    json: `{"status":${response2.status},"statusText":${s(response2.statusText)},"headers":${s(headers)},"body":"${escape_json_string_in_html(body)}"}`
+                    json: `{"status":${response22.status},"statusText":${s(response22.statusText)},"headers":${s(headers)},"body":"${escape_json_string_in_html(body)}"}`
                   });
                 }
                 return body;
@@ -26974,12 +26980,12 @@ async function load_node({
                   return JSON.parse(await text());
                 };
               }
-              return Reflect.get(response2, key, response2);
+              return Reflect.get(response22, key, response22);
             }
           });
           return proxy;
         }
-        return response || new Response("Not found", {
+        return response2 || new Response("Not found", {
           status: 404
         });
       },
@@ -27218,11 +27224,11 @@ function get_page_config(leaf, options2) {
     hydrate: "hydrate" in leaf ? !!leaf.hydrate : options2.hydrate
   };
 }
-function with_cookies(response, set_cookie_headers) {
+function with_cookies(response2, set_cookie_headers) {
   if (set_cookie_headers.length) {
-    response.headers["set-cookie"] = set_cookie_headers;
+    response2.headers["set-cookie"] = set_cookie_headers;
   }
-  return response;
+  return response2;
 }
 async function render_page(request, route, match, options2, state) {
   if (state.initiator === route) {
@@ -27240,7 +27246,7 @@ async function render_page(request, route, match, options2, state) {
     params
   };
   const $session = await options2.hooks.getSession(request);
-  const response = await respond$1({
+  const response2 = await respond$1({
     request,
     options: options2,
     state,
@@ -27248,8 +27254,8 @@ async function render_page(request, route, match, options2, state) {
     route,
     page: page2
   });
-  if (response) {
-    return response;
+  if (response2) {
+    return response2;
   }
   if (state.fetched) {
     return {
@@ -27385,26 +27391,26 @@ async function respond(incoming, options2, state = {}) {
           const match = route.pattern.exec(decoded);
           if (!match)
             continue;
-          const response = route.type === "endpoint" ? await render_endpoint(request2, route, match) : await render_page(request2, route, match, options2, state);
-          if (response) {
-            if (response.status === 200) {
-              const cache_control = get_single_valued_header(response.headers, "cache-control");
+          const response2 = route.type === "endpoint" ? await render_endpoint(request2, route, match) : await render_page(request2, route, match, options2, state);
+          if (response2) {
+            if (response2.status === 200) {
+              const cache_control = get_single_valued_header(response2.headers, "cache-control");
               if (!cache_control || !/(no-store|immutable)/.test(cache_control)) {
                 let if_none_match_value = request2.headers["if-none-match"];
                 if (if_none_match_value?.startsWith('W/"')) {
                   if_none_match_value = if_none_match_value.substring(2);
                 }
-                const etag = `"${hash(response.body || "")}"`;
+                const etag = `"${hash(response2.body || "")}"`;
                 if (if_none_match_value === etag) {
                   return {
                     status: 304,
                     headers: {}
                   };
                 }
-                response.headers["etag"] = etag;
+                response2.headers["etag"] = etag;
               }
             }
-            return response;
+            return response2;
           }
         }
         const $session = await options2.hooks.getSession(request2);
@@ -27430,14 +27436,14 @@ async function respond(incoming, options2, state = {}) {
 }
 function noop() {
 }
-function run(fn) {
+function run2(fn) {
   return fn();
 }
 function blank_object() {
   return Object.create(null);
 }
 function run_all(fns) {
-  fns.forEach(run);
+  fns.forEach(run2);
 }
 function safe_not_equal(a, b) {
   return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
@@ -27559,9 +27565,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-7c9d07a9.js",
+      file: assets + "/_app/start-5817e335.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-7c9d07a9.js", assets + "/_app/chunks/vendor-8e8dafb4.js"]
+      js: [assets + "/_app/start-5817e335.js", assets + "/_app/chunks/vendor-572cef44.js"]
     },
     fetched: void 0,
     floc: false,
@@ -27605,8 +27611,8 @@ function render(request, {
   return respond({ ...request, host }, options, { prerender: prerender3 });
 }
 var import_cookie10, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css5, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
-var init_app_518424f3 = __esm({
-  ".svelte-kit/output/server/chunks/app-518424f3.js"() {
+var init_app_a80ae852 = __esm({
+  ".svelte-kit/output/server/chunks/app-a80ae852.js"() {
     init_shims();
     import_cookie10 = __toModule(require_cookie());
     init_dist();
@@ -27777,14 +27783,14 @@ ${``}`;
       if (request.query.has("_method")) {
         request.method = request.query.get("_method").toUpperCase();
       }
-      const response = await resolve2(request);
+      const response2 = await resolve2(request);
       if (!cookies.userid) {
-        response.headers["set-cookie"] = import_cookie10.default.serialize("userid", request.locals.userid, {
+        response2.headers["set-cookie"] = import_cookie10.default.serialize("userid", request.locals.userid, {
           path: "/",
           httpOnly: true
         });
       }
-      return response;
+      return response2;
     };
     user_hooks = /* @__PURE__ */ Object.freeze({
       __proto__: null,
@@ -27871,17 +27877,17 @@ ${``}`;
       externalFetch: hooks.externalFetch || fetch
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_2206ff22(), layout_2206ff22_exports)),
-      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_0a6ae754(), error_0a6ae754_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_50a4ef0d(), index_50a4ef0d_exports)),
-      "src/routes/mailchimp.svelte": () => Promise.resolve().then(() => (init_mailchimp_b53b11ec(), mailchimp_b53b11ec_exports)),
-      "src/routes/facebook.svelte": () => Promise.resolve().then(() => (init_facebook_d032bb1d(), facebook_d032bb1d_exports)),
-      "src/routes/twitter.svelte": () => Promise.resolve().then(() => (init_twitter_8f6e9bcb(), twitter_8f6e9bcb_exports)),
-      "src/routes/custom.svelte": () => Promise.resolve().then(() => (init_custom_c146350f(), custom_c146350f_exports)),
-      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_d27b9234(), about_d27b9234_exports)),
-      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_bb5869e8(), index_bb5869e8_exports))
+      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_2628b42a(), layout_2628b42a_exports)),
+      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_ee92c138(), error_ee92c138_exports)),
+      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_b99b4411(), index_b99b4411_exports)),
+      "src/routes/mailchimp.svelte": () => Promise.resolve().then(() => (init_mailchimp_b1b0c233(), mailchimp_b1b0c233_exports)),
+      "src/routes/facebook.svelte": () => Promise.resolve().then(() => (init_facebook_02ef51bd(), facebook_02ef51bd_exports)),
+      "src/routes/twitter.svelte": () => Promise.resolve().then(() => (init_twitter_246d7f2b(), twitter_246d7f2b_exports)),
+      "src/routes/custom.svelte": () => Promise.resolve().then(() => (init_custom_fc672ece(), custom_fc672ece_exports)),
+      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_d80d5164(), about_d80d5164_exports)),
+      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_69e1d0d3(), index_69e1d0d3_exports))
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-efd681ae.js", "css": ["assets/pages/__layout.svelte-a5e0b417.css"], "js": ["pages/__layout.svelte-efd681ae.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-d5ebaf1d.js", "css": [], "js": ["error.svelte-d5ebaf1d.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-6dafb03a.js", "css": ["assets/pages/index.svelte-c63fe1c6.css"], "js": ["pages/index.svelte-6dafb03a.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/mailchimp.svelte": { "entry": "pages/mailchimp.svelte-bb06ad4f.js", "css": [], "js": ["pages/mailchimp.svelte-bb06ad4f.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/facebook.svelte": { "entry": "pages/facebook.svelte-ba6a67c4.js", "css": [], "js": ["pages/facebook.svelte-ba6a67c4.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/twitter.svelte": { "entry": "pages/twitter.svelte-21ead2a1.js", "css": [], "js": ["pages/twitter.svelte-21ead2a1.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/custom.svelte": { "entry": "pages/custom.svelte-a8fed619.js", "css": [], "js": ["pages/custom.svelte-a8fed619.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-20e3ac13.js", "css": ["assets/pages/about.svelte-bf4528fa.css"], "js": ["pages/about.svelte-20e3ac13.js", "chunks/vendor-8e8dafb4.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-08173f04.js", "css": ["assets/pages/todos/index.svelte-784042c1.css"], "js": ["pages/todos/index.svelte-08173f04.js", "chunks/vendor-8e8dafb4.js"], "styles": [] } };
+    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-94e6b333.js", "css": ["assets/pages/__layout.svelte-a5e0b417.css"], "js": ["pages/__layout.svelte-94e6b333.js", "chunks/vendor-572cef44.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-62e0ee42.js", "css": [], "js": ["error.svelte-62e0ee42.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-3da9bf30.js", "css": ["assets/pages/index.svelte-c63fe1c6.css"], "js": ["pages/index.svelte-3da9bf30.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/mailchimp.svelte": { "entry": "pages/mailchimp.svelte-3ccd9372.js", "css": [], "js": ["pages/mailchimp.svelte-3ccd9372.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/facebook.svelte": { "entry": "pages/facebook.svelte-69115c73.js", "css": [], "js": ["pages/facebook.svelte-69115c73.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/twitter.svelte": { "entry": "pages/twitter.svelte-d2f6c7fe.js", "css": [], "js": ["pages/twitter.svelte-d2f6c7fe.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/custom.svelte": { "entry": "pages/custom.svelte-4223ebe4.js", "css": [], "js": ["pages/custom.svelte-4223ebe4.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-4162383e.js", "css": ["assets/pages/about.svelte-bf4528fa.css"], "js": ["pages/about.svelte-4162383e.js", "chunks/vendor-572cef44.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-aba88c29.js", "css": ["assets/pages/todos/index.svelte-784042c1.css"], "js": ["pages/todos/index.svelte-aba88c29.js", "chunks/vendor-572cef44.js"], "styles": [] } };
   }
 });
 
@@ -27893,7 +27899,7 @@ init_shims();
 
 // .svelte-kit/output/server/app.js
 init_shims();
-init_app_518424f3();
+init_app_a80ae852();
 var import_cookie11 = __toModule(require_cookie());
 init_dist();
 
