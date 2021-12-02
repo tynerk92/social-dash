@@ -7,6 +7,7 @@
 		<a href="/">
 			<img src={logo} alt="SvelteKit" />
 		</a>
+    <div data-netlify-identity-button>Login with Netlify Identity</div>
 </header>
 
 <style>

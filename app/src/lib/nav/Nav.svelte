@@ -8,13 +8,13 @@
       <li class:active={$page.path === '/'}>
         <a sveltekit:prefetch href="/">Dashboard</a>
       </li>
-      <li class:active={$page.path === '/mailchimp'}>
+      <li class:active={$page.path.startsWith('/mailchimp')}>
         <a sveltekit:prefetch href="/mailchimp">Mailchimp</a>
       </li>
       <li class:active={$page.path === '/twitter'}>
         <a sveltekit:prefetch href="/twitter">Twitter</a>
       </li>
-      <li class:active={$page.path === '/facebook'}>
+      <li class:active={$page.path.startsWith('/facebook')}>
         <a sveltekit:prefetch href="/facebook">Facebook</a>
       </li>
       <li class:active={$page.path === '/custom'}>

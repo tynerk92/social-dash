@@ -4,17 +4,25 @@
 	import '../app.css';
 </script>
 
+<div data-netlify-identity-menu></div>
+
 <Header />
 
 <main>
   <Nav />
-	<slot />
+  <section>
+	 <slot />
+  </section>
 </main>
 
 <style>
   main {
     display: flex;
     height: calc(100vh - var(--heading-height));
+  }
+
+  section {
+    width: 100%;
   }
 
 	footer {
